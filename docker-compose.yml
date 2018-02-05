@@ -1,0 +1,14 @@
+version: '2'
+services:
+    web:
+        restart: always
+        build: .
+        ports:
+            - "8888:5000"
+        volumes:
+            - .:/code
+        depends_on:
+            - redis
+    redis:
+        restart: always
+        image: redis
